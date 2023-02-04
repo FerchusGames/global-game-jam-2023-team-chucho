@@ -58,15 +58,13 @@ public class PlayerMovement : MonoBehaviour
                 //Up
                 if (playerMovementVertical > 0)
                 {
+                    Vector3 newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
 
-                    /*
-                    if (!CheckIfWalkable())
+                    if (!CheckIfWalkable(newPosition))
                     {
                         return;
                     }
-                    */
 
-                    Vector3 newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
                     Debug.Log("Se mueve arriba uwu");
                     kevinSpriteRenderer.sprite = kevinDetras;
                     gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -91,15 +89,16 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private bool CheckIfWalkable()
+    private bool CheckIfWalkable(Vector3 nextPosition)
     {
 
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(nextPosition), Vector2.zero);
 
-        if (Physics2D.Raycast(transform.position, Vector3.right, 2f))
+        if (hit.collider)
         {
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
 }
