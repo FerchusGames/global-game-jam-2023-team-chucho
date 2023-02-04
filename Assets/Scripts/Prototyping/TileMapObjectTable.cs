@@ -4,11 +4,9 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Sirenix.Utilities;
 
-public class TableMatrixExamples : SerializedMonoBehaviour
+public class TileMapObjectTable : SerializedMonoBehaviour
 {
     [BoxGroup("Tile Map Objects")]
     [TableMatrix(HorizontalTitle = "X axis", VerticalTitle = "Y axis")]
-    public GameObject[,] TileMapObjectsTable = new GameObject[15, 10];
-
-
+    public GameObject[,] TileMapObjectsTable = new GameObject[10, 10];
 }
