@@ -39,25 +39,17 @@ public class PlayerMovement : MonoBehaviour
             //Horizontal movement only
             if (playerMovementHorizontal != 0 && playerMovementVertical == 0)
             {
-                //Right
+                //Right Rotation
                 if (playerMovementHorizontal > 0)
                 {
-                    Vector3 newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y - 0.25f, 0);
-                    Debug.Log("Se mueve a la der uwu");
-                    //kevinSpriteRenderer.sprite = kevinMonoFrente;
-                    gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-                    gameObject.transform.position = newPosition;
+                    ChangeSpriteOnRightMove();
                     movingTimeFlag = Time.time;
                 }
 
-                //Left
+                //Left Rotation
                 if (playerMovementHorizontal < 0)
                 {
-                    Vector3 newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 0.25f, 0);
-                    Debug.Log("Se mueve a la izq uwu");
-                    //kevinSpriteRenderer.sprite = kevinMonoDetras;
-                    gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-                    gameObject.transform.position = newPosition;
+                    ChangeSpriteOnLeftMove();
                     movingTimeFlag = Time.time;
                 }
             }
@@ -65,35 +57,66 @@ public class PlayerMovement : MonoBehaviour
             //Vertical movement only
             if (playerMovementHorizontal == 0 && playerMovementVertical != 0)
             {
-                //Up
+                //Moves Upfront
                 if (playerMovementVertical > 0)
                 {
-                    Vector3 newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
 
-                    /*
-                    if (!CheckIfWalkable(newPosition))
+                    Vector3 newPosition = default;
+
+                    switch (spritesState)
                     {
-                        return;
+                        case State.FrontRight:
+                            newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y - 0.25f, 0);
+                            gameObject.transform.position = newPosition;
+                            break;
+                        case State.BackLeft:
+                            newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 0.25f, 0);
+                            gameObject.transform.position = newPosition;
+                            break;
+                        case State.BackRight:
+                            newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
+                            gameObject.transform.position = newPosition;
+                            break;
+                        case State.FrontLeft:
+                            newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y - 0.25f, 0);
+                            gameObject.transform.position = newPosition;
+                            break;
                     }
-                    */
 
-                    Debug.Log("Se mueve arriba uwu");
-                    //kevinSpriteRenderer.sprite = kevinMonoDetras;
-                    gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
-                    gameObject.transform.position = newPosition;
+                    UpdateSprite();
                     movingTimeFlag = Time.time;
                 }
 
-                //Down
+                //Moves Backwards
                 if (playerMovementVertical < 0)
                 {
-                    Vector3 newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y - 0.25f, 0);
-                    Debug.Log("Se mueve abajo uwu");
-                    //kevinSpriteRenderer.sprite = kevinMonoFrente;
-                    gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
-                    gameObject.transform.position = newPosition;
+
+                    Vector3 newPosition = default;
+
+                    switch (spritesState)
+                    {
+                        case State.BackLeft:
+                            newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y - 0.25f, 0);
+                            gameObject.transform.position = newPosition;
+                            break;
+                        case State.FrontRight:
+                            newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 0.25f, 0);
+                            gameObject.transform.position = newPosition;
+                            break;
+                        case State.FrontLeft:
+                            newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
+                            gameObject.transform.position = newPosition;
+                            break;
+                        case State.BackRight:
+                            newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y - 0.25f, 0);
+                            gameObject.transform.position = newPosition;
+                            break;
+                    }
+
+                    UpdateSprite();
                     movingTimeFlag = Time.time;
                 }
+
             }
             
         }
@@ -131,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
                 spritesState = State.FrontRight;
                 break;
         }
+        UpdateSprite();
     }
 
     private void ChangeSpriteOnRightMove()
@@ -150,6 +174,53 @@ public class PlayerMovement : MonoBehaviour
                 spritesState = State.FrontRight;
                 break;
         }
+        UpdateSprite();
     }
 
+    private void UpdateSprite()
+    {
+        switch (spritesState)
+        {
+            case State.FrontRight:
+                if (this.GetComponent<PlayerStateController>().IsHuman)
+                {
+                    playerSpriteRenderer.sprite = abrahamSprites[0];
+                }
+                else
+                {
+                    playerSpriteRenderer.sprite = kevinSprites[0];
+                }
+                break;
+            case State.FrontLeft:
+                if (this.GetComponent<PlayerStateController>().IsHuman)
+                {
+                    playerSpriteRenderer.sprite = abrahamSprites[1];
+                }
+                else
+                {
+                    playerSpriteRenderer.sprite = kevinSprites[1];
+                }
+                break;
+            case State.BackLeft:
+                if (this.GetComponent<PlayerStateController>().IsHuman)
+                {
+                    playerSpriteRenderer.sprite = abrahamSprites[2];
+                }
+                else
+                {
+                    playerSpriteRenderer.sprite = kevinSprites[2];
+                }
+                break;
+            case State.BackRight:
+                if (this.GetComponent<PlayerStateController>().IsHuman)
+                {
+                    playerSpriteRenderer.sprite = abrahamSprites[3];
+                }
+                else
+                {
+                    playerSpriteRenderer.sprite = kevinSprites[3];
+                }
+                break;
+        }
+    }
 }
