@@ -30,4 +30,9 @@ public class LevelManager : Singleton<LevelManager>
     {
         SceneManager.LoadScene("Menus");
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
