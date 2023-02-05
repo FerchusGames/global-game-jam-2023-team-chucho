@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    public SaveManager Instance { get; private set; }
+    public static SaveManager Instance { get; private set; }
 
     private void Awake()
     {
