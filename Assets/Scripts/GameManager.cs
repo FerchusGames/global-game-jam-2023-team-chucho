@@ -17,5 +17,11 @@ public class GameManager : Singleton<GameManager>
     {
         monkeyObjectCounter++;
     }
+
+    public void ResetObjectCount()
+    {
+        humanObjectCounter = 0;
+        monkeyObjectCounter = 0;
+    }
 }
 

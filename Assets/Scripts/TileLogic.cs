@@ -3,7 +3,7 @@ using UnityEngine;
 public class TileLogic : MonoBehaviour
 {
     [SerializeField] private bool _isOnCollision;
-    [SerializeField] private int _turnCount = 0;
+    public int TurnCount { get; private set; }
 
     private SpriteRenderer spriteRenderer = default;
     private PolygonCollider2D tileCollider = default;
@@ -12,21 +12,14 @@ public class TileLogic : MonoBehaviour
     {
         tileCollider = GetComponent<PolygonCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        _turnCount = 0;
+        TurnCount = 0;
         _isOnCollision = false;
     }
 
     public void Turn()
     {
-            if (_turnCount < 1)
-            {
-                spriteRenderer.color = Color.red;
-                _turnCount++;
-            }
-            else
-            {
-                DisableTile();
-            }
+        spriteRenderer.color = Color.red;
+        TurnCount++;       
     }
 
     private void OnCollisionExit2D(Collision2D collision)
