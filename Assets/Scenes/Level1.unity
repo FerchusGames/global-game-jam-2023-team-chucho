@@ -862,6 +862,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4467413638879968959, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 813852321}
+    - target: {fileID: 4467413638879968959, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 4467413639149247418, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -953,6 +961,14 @@ PrefabInstance:
     - target: {fileID: 4467413639149247422, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
       propertyPath: m_Name
       value: LevelOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4467413640441795590, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 813852321}
+    - target: {fileID: 4467413640441795590, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMenu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
