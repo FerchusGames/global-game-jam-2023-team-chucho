@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+
     [SerializeField] private Sprite[] kevinSprites;
     [SerializeField] private Sprite[] abrahamSprites;
 
@@ -37,89 +37,121 @@ public class PlayerMovement : MonoBehaviour
 
             //Rotation
 
-                //Right Rotation
-                if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    ChangeSpriteOnRightMove();
-                    movingTimeFlag = Time.time;
-                }
+            //Right Rotation
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                ChangeSpriteOnRightMove();
+                movingTimeFlag = Time.time;
+            }
 
-                //Left Rotation
-                else if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    ChangeSpriteOnLeftMove();
-                    movingTimeFlag = Time.time;
-                }
-           
+            //Left Rotation
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                ChangeSpriteOnLeftMove();
+                movingTimeFlag = Time.time;
+            }
+
 
             //Vertical movement only
 
-                //Moves Upfront
-                else if (Input.GetKeyDown(KeyCode.UpArrow))
+            //Moves Upfront
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+
+                Vector3 newPosition = default;
+
+                switch (spritesState)
                 {
-
-                    Vector3 newPosition = default;
-
-                    switch (spritesState)
-                    {
-                        case State.FrontRight:
-                            newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y - 0.25f, 0);
-                            gameObject.transform.position = newPosition;
-                            break;
-                        case State.BackLeft:
-                            newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 0.25f, 0);
-                            gameObject.transform.position = newPosition;
-                            break;
-                        case State.BackRight:
-                            newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
-                            gameObject.transform.position = newPosition;
-                            break;
-                        case State.FrontLeft:
-                            newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y - 0.25f, 0);
-                            gameObject.transform.position = newPosition;
-                            break;
-                    }
-
-                    this.GetComponent<PlayerStateController>().SetHumanState();
-
-                    UpdateSprite();
-                    movingTimeFlag = Time.time;
+                    case State.FrontRight:
+                        newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y - 0.25f, 0);
+                        if (!CheckIfWalkable(newPosition))
+                        {
+                            return;
+                        }
+                        gameObject.transform.position = newPosition;
+                        break;
+                    case State.BackLeft:
+                        newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 0.25f, 0);
+                        if (!CheckIfWalkable(newPosition))
+                        {
+                            return;
+                        }
+                        gameObject.transform.position = newPosition;
+                        break;
+                    case State.BackRight:
+                        newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
+                        if (!CheckIfWalkable(newPosition))
+                        {
+                            return;
+                        }
+                        gameObject.transform.position = newPosition;
+                        break;
+                    case State.FrontLeft:
+                        newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y - 0.25f, 0);
+                        if (!CheckIfWalkable(newPosition))
+                        {
+                            return;
+                        }
+                        gameObject.transform.position = newPosition;
+                        break;
                 }
 
-                //Moves Backwards
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
+                this.GetComponent<PlayerStateController>().SetHumanState();
+
+                UpdateSprite();
+                movingTimeFlag = Time.time;
+            }
+
+            //Moves Backwards
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+
+                Vector3 newPosition = default;
+
+                switch (spritesState)
                 {
-
-                    Vector3 newPosition = default;
-
-                    switch (spritesState)
-                    {
-                        case State.BackLeft:
-                            newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y - 0.25f, 0);
-                            gameObject.transform.position = newPosition;
-                            break;
-                        case State.FrontRight:
-                            newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 0.25f, 0);
-                            gameObject.transform.position = newPosition;
-                            break;
-                        case State.FrontLeft:
-                            newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
-                            gameObject.transform.position = newPosition;
-                            break;
-                        case State.BackRight:
-                            newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y - 0.25f, 0);
-                            gameObject.transform.position = newPosition;
-                            break;
-                    }
-
-                    this.GetComponent<PlayerStateController>().SetMonkeyState();
-
-                    UpdateSprite();
-                    movingTimeFlag = Time.time;
+                    case State.BackLeft:
+                        newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y - 0.25f, 0);
+                        if (!CheckIfWalkable(newPosition))
+                        {
+                            return;
+                        }
+                        gameObject.transform.position = newPosition;
+                        break;
+                    case State.FrontRight:
+                        newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 0.25f, 0);
+                        if (!CheckIfWalkable(newPosition))
+                        {
+                            return;
+                        }
+                        gameObject.transform.position = newPosition;
+                        break;
+                    case State.FrontLeft:
+                        newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
+                        if (!CheckIfWalkable(newPosition))
+                        {
+                            return;
+                        }
+                        gameObject.transform.position = newPosition;
+                        break;
+                    case State.BackRight:
+                        newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y - 0.25f, 0);
+                        if (!CheckIfWalkable(newPosition))
+                        {
+                            return;
+                        }
+                        gameObject.transform.position = newPosition;
+                        break;
                 }
 
-          
-            
+                this.GetComponent<PlayerStateController>().SetMonkeyState();
+
+                UpdateSprite();
+                movingTimeFlag = Time.time;
+            }
+
+
+
         }
 
 
@@ -128,9 +160,11 @@ public class PlayerMovement : MonoBehaviour
     private bool CheckIfWalkable(Vector3 nextPosition)
     {
 
-        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(nextPosition), Vector2.zero);
+        float radius = 0.025f;
 
-        if (hit.collider)
+        Collider2D collider = Physics2D.OverlapCircle((Vector2)nextPosition, radius);
+
+        if (collider != null)
         {
             return true;
         }
