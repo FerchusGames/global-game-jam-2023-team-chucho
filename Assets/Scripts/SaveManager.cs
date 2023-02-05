@@ -25,4 +25,10 @@ public class SaveManager : MonoBehaviour
     {
         PlayerPrefs.SetString("CurrentLevel", "Level1");
     }
+
+    public void StartAgain()
+    {
+        ResetSave();
+        LevelManager.Instance.LoadMenu();
+    }
 }
