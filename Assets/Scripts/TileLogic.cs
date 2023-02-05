@@ -26,7 +26,6 @@ public class TileLogic : MonoBehaviour
             else
             {
                 DisableTile();
-                GameManager.Instance.GameOver();
             }
     }
 

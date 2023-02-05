@@ -1,3 +1,5 @@
+using UnityEngine.SceneManagement;
+
 public class GameManager : Singleton<GameManager>
 {
     private int humanObjectCounter = default;
@@ -5,6 +7,11 @@ public class GameManager : Singleton<GameManager>
 
     public int HumanObjectCounter { get { return humanObjectCounter; } }
     public int MonkeyObjectCounter { get { return monkeyObjectCounter; } }
+
+    private void Awake()
+    {
+        LevelManager.Instance.CurrentLevel = SceneManager.GetActiveScene().name;
+    }
 
     public void AddHumanObjetcToCount()
     {
@@ -14,11 +21,6 @@ public class GameManager : Singleton<GameManager>
     public void AddMonkeyObjetcToCount()
     {
         monkeyObjectCounter++;
-    }
-
-    public void GameOver()
-    {
-        LevelManager.Instance.LoadLevel("Game Over");
     }
 }
 
