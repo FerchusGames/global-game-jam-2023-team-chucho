@@ -1575,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5d3b0b99923f13f4d8b2192c77ab841d, type: 3}
     - target: {fileID: 3944654129707402133, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
       propertyPath: _timeBetweenEachInput
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3944654129707402133, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
       propertyPath: kevinSprites.Array.size

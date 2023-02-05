@@ -32,35 +32,30 @@ public class PlayerMovement : MonoBehaviour
     {
         //Debug.DrawRay(transform.position, Vector3.right * 0.5f, Color.red);
 
-        float playerMovementHorizontal = Input.GetAxis("Horizontal");
-        float playerMovementVertical = Input.GetAxis("Vertical");
-
         if (Time.time > movingTimeFlag + _timeBetweenEachInput)
         {
 
-            //Horizontal movement only
-            if (playerMovementHorizontal != 0 && playerMovementVertical == 0)
-            {
+            //Rotation
+
                 //Right Rotation
-                if (playerMovementHorizontal > 0)
+                if (Input.GetKeyDown(KeyCode.RightArrow))
                 {
                     ChangeSpriteOnRightMove();
                     movingTimeFlag = Time.time;
                 }
 
                 //Left Rotation
-                if (playerMovementHorizontal < 0)
+                else if (Input.GetKeyDown(KeyCode.LeftArrow))
                 {
                     ChangeSpriteOnLeftMove();
                     movingTimeFlag = Time.time;
                 }
-            }
+           
 
             //Vertical movement only
-            if (playerMovementHorizontal == 0 && playerMovementVertical != 0)
-            {
+
                 //Moves Upfront
-                if (playerMovementVertical > 0)
+                else if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
 
                     Vector3 newPosition = default;
@@ -92,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 //Moves Backwards
-                if (playerMovementVertical < 0)
+                else if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
 
                     Vector3 newPosition = default;
@@ -123,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
                     movingTimeFlag = Time.time;
                 }
 
-            }
+          
             
         }
 
