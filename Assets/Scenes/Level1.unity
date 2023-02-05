@@ -835,6 +835,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4467413639149247419, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 688397982}
     - target: {fileID: 4467413639149247422, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
       propertyPath: m_Name
       value: LevelOverlay
