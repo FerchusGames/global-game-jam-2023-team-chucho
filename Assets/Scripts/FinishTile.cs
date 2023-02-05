@@ -12,6 +12,7 @@ public class FinishTile : MonoBehaviour
 
         if (collision.CompareTag("Player") && objectiveCount > 1)
         {
+            PlayerPrefs.SetString("CurrentLevel", _nextLevelName);
             LevelManager.Instance.LoadLevel(_nextLevelName);
         }
     }

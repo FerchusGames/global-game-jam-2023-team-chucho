@@ -18,5 +18,12 @@ public class SaveManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+
+        ResetSave();
+    }
+
+    public void ResetSave()
+    {
+        PlayerPrefs.SetString("CurrentLevel", "Level1");
     }
 }

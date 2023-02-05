@@ -5236,7 +5236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f360d86963f3d4aa1e02927037f493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextLevelName: Menus
+  _nextLevelName: WinScreen
 --- !u!1001 &7907876506472251851
 PrefabInstance:
   m_ObjectHideFlags: 0
