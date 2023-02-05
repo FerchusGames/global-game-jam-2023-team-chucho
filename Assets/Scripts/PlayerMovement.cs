@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Sprite[] kevinSprites;
     [SerializeField] private Sprite[] abrahamSprites;
 
+    [SerializeField] private float _timeBetweenEachInput = 0.1f;
+
     private float movingTimeFlag = 0f;
     private SpriteRenderer playerSpriteRenderer = default;
 
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         float playerMovementHorizontal = Input.GetAxis("Horizontal");
         float playerMovementVertical = Input.GetAxis("Vertical");
 
-        if (Time.time > movingTimeFlag + 0.4f)
+        if (Time.time > movingTimeFlag + _timeBetweenEachInput)
         {
 
             //Horizontal movement only
