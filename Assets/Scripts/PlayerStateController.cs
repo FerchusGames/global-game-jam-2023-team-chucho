@@ -11,8 +11,15 @@ public class PlayerStateController : MonoBehaviour
         IsHuman = true;
     }
 
-    public void ChangePlayerState()
+    public void SetHumanState()
     {
-        IsHuman = !IsHuman;
+        IsHuman = true;
     }
+
+    public void SetMonkeyState()
+    {
+        IsHuman = false;
+    }
+
+
 }
