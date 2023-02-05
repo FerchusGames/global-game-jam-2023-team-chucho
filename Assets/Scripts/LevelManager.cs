@@ -7,17 +7,23 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (PlayerPrefs.GetString("CurrentLevel") != "")
         {
+            AudioManager.Instance.InlevelMusic();
             LoadLevel(PlayerPrefs.GetString("CurrentLevel"));
         }
 
         else
         {
+            AudioManager.Instance.InlevelMusic();
             LoadLevel("Level1");
         }
     }
 
     public void LoadLevel(string levelName)
     {
+        if (levelName == "WinScreen")
+        {
+            AudioManager.Instance.WinGameSong();
+        }
         SceneManager.LoadScene(levelName);
     }
 
@@ -28,6 +34,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void LoadMenu()
     {
+        AudioManager.Instance.BackgroundMusic();
         SceneManager.LoadScene("Menus");
     }
 

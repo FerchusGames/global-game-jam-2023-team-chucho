@@ -17,6 +17,7 @@ public class MonkeyObjectController : MonoBehaviour
         {
             if (!collision.GetComponent<PlayerStateController>().IsHuman)
             {
+                AudioManager.Instance.GrabSpearSound();
                 gameManager.AddMonkeyObjetcToCount();
                 Destroy(gameObject);
             }

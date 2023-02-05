@@ -15,6 +15,7 @@ public class HumanObjectController : MonoBehaviour
         {
             if (collision.GetComponent<PlayerStateController>().IsHuman)
             {
+                AudioManager.Instance.GrabChipSound();
                 gameManager.AddHumanObjetcToCount();
                 Destroy(gameObject);
             }

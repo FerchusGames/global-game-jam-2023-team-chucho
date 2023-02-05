@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float movingTimeFlag = 0f;
     private SpriteRenderer playerSpriteRenderer = default;
+    private bool last_Move_Was_Upfront = true;
 
     private enum State
     {
@@ -107,6 +108,16 @@ public class PlayerMovement : MonoBehaviour
 
                 this.GetComponent<PlayerStateController>().SetHumanState();
 
+                if (!last_Move_Was_Upfront)
+                {
+                    AudioManager.Instance.HumanJump();
+                    last_Move_Was_Upfront = true;
+                }
+                else
+                {
+                    AudioManager.Instance.MoveSound();
+                }
+
                 UpdateSprite();
                 movingTimeFlag = Time.time;
             }
@@ -154,6 +165,16 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 this.GetComponent<PlayerStateController>().SetMonkeyState();
+
+                if (last_Move_Was_Upfront)
+                {
+                    AudioManager.Instance.MonkeyJump();
+                    last_Move_Was_Upfront = false;
+                }
+                else
+                {
+                    AudioManager.Instance.MoveSound();
+                }
 
                 UpdateSprite();
                 movingTimeFlag = Time.time;

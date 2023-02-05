@@ -22,16 +22,21 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
             Instance = this;
         }
+
+        DontDestroyOnLoad(this.gameObject);
     }
+
     public void PlayBackgroundMusic(AudioClip levelMusic)
     {
-        audioSourceMusic.PlayOneShot(levelMusic);
+        audioSourceMusic.Stop();
+        audioSourceMusic.clip = levelMusic;
+        audioSourceMusic.Play();
     }
 
     public void BackgroundMusic()
@@ -69,7 +74,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayInLevelMusic(AudioClip inlevelclip)
     {
-        audioSourceMusic.PlayOneShot(inlevelclip);
+        audioSourceMusic.Stop();
+        audioSourceMusic.clip = inlevelclip;
+        audioSourceMusic.Play();
     }
 
     public void InlevelMusic()
@@ -79,7 +86,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayWinGameSong(AudioClip WinGameclip)
     {
-        audioSourceMusic.PlayOneShot(WinGameclip);
+        audioSourceMusic.Stop();
+        audioSourceMusic.clip = WinGameclip;
+        audioSourceMusic.Play();
     }
 
     public void WinGameSong()

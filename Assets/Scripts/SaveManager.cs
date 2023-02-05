@@ -11,7 +11,7 @@ public class SaveManager : MonoBehaviour
         if (Instance != null)
         {
             Debug.LogWarning("Found another SaveManager instance");
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         else
         {
