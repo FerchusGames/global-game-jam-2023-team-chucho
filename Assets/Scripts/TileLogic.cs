@@ -9,7 +9,13 @@ public class TileLogic : MonoBehaviour
     private void Awake()
     {
         tileCollider = GetComponent<PolygonCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>(); 
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        turnCount = 0;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Entered collision with tile in position: " + collision.collider.transform.position);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -18,24 +24,30 @@ public class TileLogic : MonoBehaviour
         {
             if (turnCount < 1)
             {
+                spriteRenderer.color = Color.red;
                 turnCount++;
             }
             else
             {
-                spriteRenderer.color = Color.red;
-                tileCollider.enabled = false;
-                turnCount = 0;
+                DisableTile();
+                GameManager.Instance.GameOver();
             }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        Debug.Log("Exited Collision");
+
         if (collision.collider.CompareTag("Player"))
         {
-            spriteRenderer.color = Color.red;
-            tileCollider.enabled = false;
+            DisableTile();
         }
     }
 
+    private void DisableTile()
+    {
+        spriteRenderer.enabled = false;
+        tileCollider.enabled = false;
+    }
 }

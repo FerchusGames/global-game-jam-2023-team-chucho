@@ -15,5 +15,10 @@ public class GameManager : Singleton<GameManager>
     {
         monkeyObjectCounter++;
     }
+
+    public void GameOver()
+    {
+        LevelManager.Instance.LoadLevel("Game Over");
+    }
 }
 
