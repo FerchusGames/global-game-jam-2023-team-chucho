@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 ChangeSpriteOnRightMove();
                 movingTimeFlag = Time.time;
+                GetCurrentTile().Turn();
             }
 
             //Left Rotation
@@ -49,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 ChangeSpriteOnLeftMove();
                 movingTimeFlag = Time.time;
+                GetCurrentTile().Turn();
             }
 
 
@@ -149,12 +151,12 @@ public class PlayerMovement : MonoBehaviour
                 UpdateSprite();
                 movingTimeFlag = Time.time;
             }
-
-
-
         }
+    }
 
-
+    private TileLogic GetCurrentTile()
+    {
+        return Physics2D.OverlapCircle((Vector2)transform.position, 0.025f).GetComponent<TileLogic>();
     }
 
     private bool CheckIfWalkable(Vector3 nextPosition)
