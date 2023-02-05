@@ -34,23 +34,30 @@ public class PlayerMovement : MonoBehaviour
 
         if (Time.time > movingTimeFlag + _timeBetweenEachInput)
         {
-
             //Rotation
 
             //Right Rotation
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                ChangeSpriteOnRightMove();
-                movingTimeFlag = Time.time;
-                GetCurrentTile().Turn();
+                if(GetCurrentTile().TurnCount < 1)
+                {
+                    ChangeSpriteOnRightMove();
+                    movingTimeFlag = Time.time;
+                    GetCurrentTile().Turn();
+                }
+
+
             }
 
             //Left Rotation
-            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && GetCurrentTile().TurnCount < 1)
             {
-                ChangeSpriteOnLeftMove();
-                movingTimeFlag = Time.time;
-                GetCurrentTile().Turn();
+                if (GetCurrentTile().TurnCount < 1)
+                {
+                    ChangeSpriteOnLeftMove();
+                    movingTimeFlag = Time.time;
+                    GetCurrentTile().Turn();
+                }
             }
 
 

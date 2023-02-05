@@ -3,10 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
 {
-
     public void LoadCurrentLevel()
     {
-        LoadLevel(PlayerPrefs.GetString("CurrentLevel"));
+        if (PlayerPrefs.GetString("CurrentLevel") != "")
+        {
+            LoadLevel(PlayerPrefs.GetString("CurrentLevel"));
+        }
+
+        else
+        {
+            LoadLevel("Level1");
+        }
     }
 
     public void LoadLevel(string levelName)

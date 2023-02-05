@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
     {
         if (Instance != null)
         {
+            Debug.LogWarning("Found another SaveManager instance");
             Destroy(this);
         }
         else
@@ -18,8 +19,6 @@ public class SaveManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
-
-        ResetSave();
     }
 
     public void ResetSave()
