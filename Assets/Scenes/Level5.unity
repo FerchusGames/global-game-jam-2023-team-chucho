@@ -1104,6 +1104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4467413639149247419, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 688397982}
     - target: {fileID: 4467413639149247422, guid: 0a67539eed559e640a5969b4d8d0d6c7, type: 3}
       propertyPath: m_Name
       value: LevelOverlay
@@ -3264,10 +3268,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1703576304166770777, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0dade009410475744a92fbc637d80f3f, type: 2}
     - target: {fileID: 1703576304166770778, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
       propertyPath: m_Name
       value: HumanObject
@@ -3433,7 +3433,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bebe747113a579943b27c85753162e1f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc942bf31651f4c48bf5690e7804d560, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3607,10 +3607,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7907876506087334472, guid: be5c47e534a37754ebc14f67f4f40866, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 68b89528ec9a86a4d99b040bc2fc903f, type: 2}
     - target: {fileID: 7907876506087334475, guid: be5c47e534a37754ebc14f67f4f40866, type: 3}
       propertyPath: m_Name
       value: MonkeyObject
@@ -3717,7 +3713,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bebe747113a579943b27c85753162e1f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc942bf31651f4c48bf5690e7804d560, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
