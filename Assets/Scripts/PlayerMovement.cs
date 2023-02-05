@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    [SerializeField] private Sprite kevinFrente;
-    [SerializeField] private Sprite kevinDetras;
+    
+    [SerializeField] private Sprite[] kevinSprites;
+    [SerializeField] private Sprite[] abrahamSprites;
 
     private float movingTimeFlag = 0f;
-    private SpriteRenderer kevinSpriteRenderer = default;
+    private SpriteRenderer playerSpriteRenderer = default;
+
+    private enum State
+    {
+        FrontRight,
+        FrontLeft,
+        BackLeft,
+        BackRight
+    }
+
+    private State spritesState = default;
 
     private void Start()
     {
-        kevinSpriteRenderer = GetComponent<SpriteRenderer>();
+        playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -34,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Vector3 newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y - 0.25f, 0);
                     Debug.Log("Se mueve a la der uwu");
-                    kevinSpriteRenderer.sprite = kevinFrente;
+                    //kevinSpriteRenderer.sprite = kevinMonoFrente;
                     gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
                     gameObject.transform.position = newPosition;
                     movingTimeFlag = Time.time;
@@ -45,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Vector3 newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y + 0.25f, 0);
                     Debug.Log("Se mueve a la izq uwu");
-                    kevinSpriteRenderer.sprite = kevinDetras;
+                    //kevinSpriteRenderer.sprite = kevinMonoDetras;
                     gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
                     gameObject.transform.position = newPosition;
                     movingTimeFlag = Time.time;
@@ -60,13 +70,15 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Vector3 newPosition = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y + 0.25f, 0);
 
+                    /*
                     if (!CheckIfWalkable(newPosition))
                     {
                         return;
                     }
+                    */
 
                     Debug.Log("Se mueve arriba uwu");
-                    kevinSpriteRenderer.sprite = kevinDetras;
+                    //kevinSpriteRenderer.sprite = kevinMonoDetras;
                     gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
                     gameObject.transform.position = newPosition;
                     movingTimeFlag = Time.time;
@@ -77,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Vector3 newPosition = new Vector3(gameObject.transform.position.x - 0.5f, gameObject.transform.position.y - 0.25f, 0);
                     Debug.Log("Se mueve abajo uwu");
-                    kevinSpriteRenderer.sprite = kevinFrente;
+                    //kevinSpriteRenderer.sprite = kevinMonoFrente;
                     gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
                     gameObject.transform.position = newPosition;
                     movingTimeFlag = Time.time;
@@ -101,4 +113,43 @@ public class PlayerMovement : MonoBehaviour
 
         return false;
     }
+
+    private void ChangeSpriteOnLeftMove()
+    {
+        switch (spritesState)
+        {
+            case State.FrontRight:
+                spritesState = State.FrontLeft;
+                break;
+            case State.FrontLeft:
+                spritesState = State.BackLeft;
+                break;
+            case State.BackLeft:
+                spritesState = State.BackRight;
+                break;
+            case State.BackRight:
+                spritesState = State.FrontRight;
+                break;
+        }
+    }
+
+    private void ChangeSpriteOnRightMove()
+    {
+        switch (spritesState)
+        {
+            case State.FrontRight:
+                spritesState = State.BackRight;
+                break;
+            case State.BackRight:
+                spritesState = State.BackLeft;
+                break;
+            case State.BackLeft:
+                spritesState = State.FrontLeft;
+                break;
+            case State.FrontLeft:
+                spritesState = State.FrontRight;
+                break;
+        }
+    }
+
 }

@@ -772,6 +772,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7908318512743998013, guid: 18dfa6350d22e514ab30c48807b3325d, type: 3}
   m_PrefabInstance: {fileID: 992246279}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1052881707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3944654129707402121, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
+  m_PrefabInstance: {fileID: 3944654129963377637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1052881708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052881707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae14f915fab5ea49af449eafc738d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsHuman>k__BackingField: 1
 --- !u!1001 &1084665016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1484,6 +1502,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3944654129707402120, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944654129707402120, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
       objectReference: {fileID: 0}
@@ -1526,6 +1548,26 @@ PrefabInstance:
     - target: {fileID: 3944654129707402121, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
       propertyPath: m_Name
       value: Kevin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944654129707402122, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8fa2f575e77a6f949bbc27c1bab029ff, type: 3}
+    - target: {fileID: 3944654129707402122, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944654129707402133, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
+      propertyPath: kevinMonoDetras
+      value: 
+      objectReference: {fileID: 21300000, guid: 522c153142de54b489e5da218e76c8ca, type: 3}
+    - target: {fileID: 3944654129707402133, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
+      propertyPath: kevinMonoFrente
+      value: 
+      objectReference: {fileID: 21300000, guid: 5d3b0b99923f13f4d8b2192c77ab841d, type: 3}
+    - target: {fileID: 3944654129707402133, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
+      propertyPath: kevinSprites.Array.size
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 348a190493b6b8349afab6fe49def2ee, type: 3}
