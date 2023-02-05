@@ -5212,10 +5212,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1703576304166770777, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0dade009410475744a92fbc637d80f3f, type: 2}
+    - target: {fileID: 1703576304166770776, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 1703576304166770778, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
       propertyPath: m_Name
       value: HumanObject
@@ -5230,7 +5230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1703576304166770790, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.946
+      value: -1.89
       objectReference: {fileID: 0}
     - target: {fileID: 1703576304166770790, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5401,10 +5401,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7907876506087334472, guid: be5c47e534a37754ebc14f67f4f40866, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 68b89528ec9a86a4d99b040bc2fc903f, type: 2}
     - target: {fileID: 7907876506087334475, guid: be5c47e534a37754ebc14f67f4f40866, type: 3}
       propertyPath: m_Name
       value: MonkeyObject

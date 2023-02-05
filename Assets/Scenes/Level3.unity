@@ -2881,6 +2881,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1703576304166770776, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 1703576304166770777, guid: 9d59391459be86b48a78fab3580a18dc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
