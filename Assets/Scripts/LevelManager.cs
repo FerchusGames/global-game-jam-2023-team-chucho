@@ -1,18 +1,26 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
 {
-    private string currentLevel = "Level1";
-
-    public string CurrentLevel { get { return currentLevel; } set { currentLevel = value; } }
 
     public void LoadCurrentLevel()
     {
-        LoadLevel(currentLevel);
+        LoadLevel(PlayerPrefs.GetString("CurrentLevel"));
     }
 
     public void LoadLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
+    }
+
+    public void ResetLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menus");
     }
 }

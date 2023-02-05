@@ -8,11 +8,6 @@ public class GameManager : Singleton<GameManager>
     public int HumanObjectCounter { get { return humanObjectCounter; } }
     public int MonkeyObjectCounter { get { return monkeyObjectCounter; } }
 
-    private void Awake()
-    {
-        LevelManager.Instance.CurrentLevel = SceneManager.GetActiveScene().name;
-    }
-
     public void AddHumanObjetcToCount()
     {
         humanObjectCounter++;
