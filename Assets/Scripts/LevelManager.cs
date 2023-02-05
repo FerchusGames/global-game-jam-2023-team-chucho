@@ -23,6 +23,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void ResetLevel()
     {
+        GameManager.Instance.ResetObjectCount();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
