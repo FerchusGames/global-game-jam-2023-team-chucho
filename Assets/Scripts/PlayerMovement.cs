@@ -83,6 +83,8 @@ public class PlayerMovement : MonoBehaviour
                             break;
                     }
 
+                    this.GetComponent<PlayerStateController>().SetHumanState();
+
                     UpdateSprite();
                     movingTimeFlag = Time.time;
                 }
@@ -112,6 +114,8 @@ public class PlayerMovement : MonoBehaviour
                             gameObject.transform.position = newPosition;
                             break;
                     }
+
+                    this.GetComponent<PlayerStateController>().SetMonkeyState();
 
                     UpdateSprite();
                     movingTimeFlag = Time.time;
