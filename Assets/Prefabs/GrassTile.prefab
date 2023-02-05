@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7908318512743998014}
   - component: {fileID: 7908318512743998015}
   - component: {fileID: 7908318512743998008}
+  - component: {fileID: 3938481037947612259}
   m_Layer: 0
   m_Name: GrassTile
   m_TagString: Untagged
@@ -140,3 +141,15 @@ PolygonCollider2D:
       - {x: 0.30211073, y: -0.06614756}
       - {x: 0.31701833, y: 0.062110648}
       - {x: 0.00055321306, y: 0.21254614}
+--- !u!114 &3938481037947612259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908318512743998009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3380b3d408e282540b3ca45a014142fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
