@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    private void ChangeSpriteOnLeftMove()
+    private void ChangeSpriteOnRightMove()
     {
         switch (spritesState)
         {
@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         UpdateSprite();
     }
 
-    private void ChangeSpriteOnRightMove()
+    private void ChangeSpriteOnLeftMove()
     {
         switch (spritesState)
         {
